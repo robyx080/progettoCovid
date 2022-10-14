@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Dashboard profilo paziente">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- setta la dimensione della pagina -->
+    <meta name="author" content="Roberto Tomasello,Alessandro Busà">
+    <title>Dashboard profilo paziente</title>
+
+
+    <!-- stili css di bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="bootstrap-5/dashboard/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header che conterrà la parte iniziale della dashboard e anche il bottone per vedere i link della dashboard   -->
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vaccinazione Covid-19</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
+    <!-- div che conterrà tutta la parte principale della dashboard  -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Navbar che conterrà le icone e i link che portano alle altre pagine   -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clickProfilo">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                </svg>
+                                Profilo
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clickPrenotazione">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
+                                    <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                    <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                </svg>
+                                Prenotazione Vaccino
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clickPassword">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                </svg>
+                                Modifica Password
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="logout()">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Div profilo che conterrà la pagina del profilo del paziente   -->
+            <div id="profilo">
+                <!-- all'interno di questo main andremo a creare la pagina del profilo -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                    <h2>Profilo</h2>
+                    <!-- Div che conterrà la tabella del Profilo -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm" id="tableProfilo">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cognome</th>
+                                    <th>Codice Fiscale</th>
+                                    <th>Indirizzo</th>
+                                    <th>Data Nascita</th>
+                                    <th>Luogo Nascita</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2>Prenotazione</h2>
+
+                    <!-- Div che conterrà la risposta se il paziente non ha fatto prenotazioni -->
+                    <div class="alert alert-warning" role="alert" id="NoPrenotazione" style="display:none">
+                        <h4 class="alert-heading">Nessuna prenotazione Effettuata.</h4>
+                        <p>Per pronotarsi vai nella sezione "Prenotazione Vaccino".</p>
+                    </div>
+                    <!-- Div che conterrà la tabella delle prenotazioni-->
+                    <div id="divTablePrenotazione" style="display:none">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm" id="tablePrenotazione">
+                                <thead>
+                                    <tr>
+                                        <th>Codice Fiscale</th>
+                                        <th>Data</th>
+                                        <th>Orario</th>
+                                        <th>Ospedale</th>
+                                        <th>Vaccino</th>
+                                        <th>Dose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h2>Elimina Prenotazione</h2>
+
+                        <!-- form di cancellazione prenotazione -->
+                        <form id=formCancellaPrenotazione>
+                            <!-- input checkbox -->
+                            <input type="checkbox" id="cancella" class="form-check-input" required autofocus> Seleziona qui per eliminare la prenotazione<br><br>
+                            <!-- bottone per il submit del form -->
+                            <button class="w-10 btn btn-lg btn-primary" type="submit">Cancella Prenotazione</button>
+                        </form>
+
+                        <!-- Div che conterrà la risposta del form di cancellazione nel caso di un errore -->
+                        <div class="alert alert-danger" role="alert" id="deleteErr" style="display:none">
+                            <h4 class="alert-heading">Errore</h4>
+                            <p>Errore nella cancellazione della prenotazione. Per favore <a href="#" onclick="changeDiv('formCancellaPrenotazione','deleteErr')">riprova</a>.</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- Div prenotazioni che conterrà la pagina che ci consente di effettuare una prenotazione   -->
+            <div id="prenotazione" style="display:none">
+                <!-- all'interno di questo main andremo a creare la pagina della prenotazione del vaccino -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <h2>Prenotazione Vaccino</h2>
+                    <!-- form di prenotazione -->
+                    <form id="formPrenotazioneVaccino">
+                        <div class="form-group mb-3">
+                            <label>Tipologia Vaccino</label>
+                            <!-- select per l'inserimento del vaccino (le option le creeremo tramite js) -->
+                            <select class="form-control" id="selectVaccino">
+
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Ospedale</label>
+                            <!-- select per l'inserimento dell'ospedale (le option le creeremo tramite js) -->
+                            <select class="form-control" id="selectOspedale">
+
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Data Prenotazione</label>
+                            <!-- input della data -->
+                            <input type="date" class="form-control" id="dataPrenotazioneVaccino" required autofocus>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Orario prenotazione</label>
+                            <!-- input dell'ora -->
+                            <input type="number" class="form-control" id="ora" min="9" max="18" step="1" placeholder="ore 9-18" required autofocus>
+                        </div>
+                        <div class="form-group mb-3">
+                            <!-- input dei minuti -->
+                            <input type="number" class="form-control" id="minuti" min="0" max="50" step="10" placeholder="minuti 0-50" required autofocus>
+                        </div>
+                        <!-- bottone per il submit del form -->
+                        <button class="w-10 btn btn-lg btn-primary" type="submit">Prenotati</button>
+                    </form>
+
+                    <!-- Div che conterrà la risposta del form di prenotazione nel caso di successo -->
+                    <div class="alert alert-success" role="alert" id="prenotazioneSuc" style="display:none">
+                        <h4 class="alert-heading">Prenotazione Effettuata</h4>
+                        <p>Controllare nel Profilo.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di prenotazione nel caso che le prenotazioni siamo al completo -->
+                    <div class="alert alert-danger" role="alert" id="prenotazioneErr" style="display:none">
+                        <h4 class="alert-heading">Prenotazione non effettuata</h4>
+                        <p>Data e orario già al completo.<br> <a href="#" onclick="changeDiv('formPrenotazioneVaccino','prenotazioneErr')">Riprova</a> </p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di prenotazione nel caso di prenotazione già effettuata -->
+                    <div class="alert alert-warning" role="alert" id="prenotazioneExist" style="display:none">
+                        <h4 class="alert-heading">Prenotazione già effettuata</h4>
+                        <p>Controllare il Profilo.</p>
+                    </div>
+
+                </main>
+
+            </div>
+
+            <!-- Div modifica che conterrà la pagina che ci consente di effettuare modificare la password  -->
+            <div id="modifica" style="display:none">
+                <!-- all'interno di questo main andremo a creare il form per la modifica della password -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                    <h2>Modifica Password</h2>
+                    <!-- form di modifica password -->
+                    <form id="formPassword">
+                        <div class="form-group mb-3">
+                            <label>Password Attuale</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="password" placeholder="Password Attuale" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                                title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Password Nuova</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="Npassword" placeholder="Password Nuova" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                                title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Conferma Password Nuova</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="Cpassword" placeholder="Conferma Password Nuova" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                                title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <!-- bottone per il submit del form -->
+                        <button class="w-10 btn btn-lg btn-primary" type="submit">Cambia</button>
+                    </form>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di successo -->
+                    <div class="alert alert-success" role="alert" id="changeSucc" style="display:none">
+                        <h4 class="alert-heading">Password Cambiata</h4>
+                        <p>Per favore riaccedi.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di errore per password non uguali -->
+                    <div class="alert alert-danger" role="alert" id="TwoPasswordErr" style="display:none">
+                        <h4 class="alert-heading">Errore</h4>
+                        <p>Password Nuova non coincidente. Per favore <a href="#" onclick="changeDiv('formPassword','TwoPasswordErr')">riprova</a>.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di errore per password attuale  -->
+                    <div class="alert alert-danger" role="alert" id="passwordErr" style="display:none">
+                        <h4 class="alert-heading">Errore</h4>
+                        <p>Errore password attuale. Per favore <a href="#" onclick="changeDiv('formPassword','passwordErr')">riprova</a>.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di errore per password vecchia uguale a nuova -->
+                    <div class="alert alert-danger" role="alert" id="passwordUguali" style="display:none">
+                        <h4 class="alert-heading">Errore</h4>
+                        <p>password vecchia uguale a nuova. Per favore <a href="#" onclick="changeDiv('formPassword','passwordUguali')">riprova</a>.</p>
+                    </div>
+                </main>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+    <!-- script che contiene tutte le nostre funzioni js -->
+    <script src="script.js"> </script>
+    <!-- script della pagina dashboard_profilo -->
+    <script>
+        profilo(); //funzione js di script.js che ci consente di prendere le informazione del profilo del paziente
+        showPrenotazione();  //funzione js di script.js che ci consente di creare la tabella delle prenotazioni del vaccino del paziente e se non ci sono prenotazioni mostra un messaggio
+        infoVaccino();  //funzione js di script.js che ci consente di creare le option per le select del form della prenotazione
+        setDate("dataPrenotazioneVaccino");  //ci settiamo l'attributo min su l'input date
+
+        //aggiungo un evento di click al link del profilo
+        document.getElementById("clickProfilo").addEventListener('click', function(e) {
+            e.preventDefault()  //cancelliamo l'evento di default
+            changeDivDashboard('profilo', 'prenotazione', 'modifica');  //cambiamo il div che mostriamo
+            showPrenotazione();  //funzione js di script.js che ci consente di creare la tabella delle prenotazioni del vaccino del paziente e se non ci sono prenotazioni mostra un messaggio
+        });
+
+        //aggiungo un evento di click al link della prenotazione
+        document.getElementById("clickPrenotazione").addEventListener('click', function(e) {
+            e.preventDefault()  //cancelliamo l'evento di default
+            changeDivDashboard('prenotazione', 'profilo', 'modifica');  //cambiamo il div che mostriamo
+            showForm();  //mostra il div del form della prenotazione
+        });
+
+        //aggiungo un evento di submit al form della prenotazione
+        document.getElementById("formPrenotazioneVaccino").addEventListener('submit', function(e) {
+            e.preventDefault()   //cancelliamo l'evento di default
+            prenotazioneVaccino();  //funzione js di script.js che ci consente di effettuare la prenotazione del vaccino
+            document.getElementById("NoPrenotazione").style.display = "none"; //disattivo la visualizzazione della risposta "nessuna prenotazione" sul div del profilo
+        });
+
+        //aggiungo un evento di click al link della password
+        document.getElementById("clickPassword").addEventListener('click', function(e) {
+            e.preventDefault()  //cancelliamo l'evento di default
+            changeDivDashboard('modifica', 'profilo', 'prenotazione');  //cambiamo il div che mostriamo
+        });
+
+        //aggiungo un evento di submit al form della password
+        document.getElementById("formPassword").addEventListener('submit', function(e) {
+            e.preventDefault()  //cancelliamo l'evento di default
+            changePassword();  //funzione js di script.js che ci consente di effettuare il cambio di password
+        });
+
+        //aggiungo un evento di submit al form della cancellazione della prenotazione
+        document.getElementById("formCancellaPrenotazione").addEventListener('submit', function(e) {
+            e.preventDefault()  //cancelliamo l'evento di default
+            deletePrenotazione();  //funzione js di script.js che ci consente di effettuare la cancellazione della prenotazione
+        });
+    </script>
+
+    <!-- script che ci permette di cifrare la password -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+
+    <!-- script js di bootstrap -->
+    <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="bootstrap-5/dashboard/dashboard.js"></script>
+</body>
+
+</html>

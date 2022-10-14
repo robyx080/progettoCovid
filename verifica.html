@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Prenotazione Messina verifica">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Roberto Tomasello,Alessandro Busà">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Prenotazione Messina Verifica</title>
+
+        <!-- stile css di bootstrap -->
+        <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="signin.css">
+
+    </head>
+</head>
+<body class="text-center">
+
+    <!-- all'interno di questo main andremo a creare il form per la verifica dell'account -->
+    <main class="form-signin" id="form">
+        <!-- form di login -->
+        <form id="Form">
+            <img class="mb-4" src="img/logo.png" alt="" width="70" height="70">
+            <h1 class="h3 mb-3 fw-normal">Verifica Account</h1>
+            <!-- input dell'email con relativo pattern -->
+            <input type="email" class="form-control" id="email" name="email" placeholder="Indirizzo Email" required autofocus pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="L'email deve essere composta così example@example.com">
+            <!-- input della password con relativo pattern -->
+            <input type="text"  class="form-control" id="token" name="token" placeholder="Codice OTP" required pattern="[0-9a-zA-Z]{10}"  title="Il token lo troverai nell'email mandata per la verifica dell'account">
+            <!-- bottone per il submit del form -->
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Verifica</button>
+            <p class="mt-5 mb-3 text-muted">© Prenotazione Messina 2021. All Rights Reserved. Progetto Universitario</p>
+        </form>
+    </main>
+
+    <!-- Div che conterrà la risposta del form di verifica nel caso di successo -->
+    <div class="container" id="formValSuc" style="display:none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Account Verificato!</h4>
+                            <p>Grazie per aver verificato l'account. Clicca <a href="http://prenotazionemessina.altervista.org/signinup.html">qui</a> per accedere</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div che conterrà la risposta del form di verifica nel caso di errore -->
+    <div class="container" id="formValEr" style="display:none">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Errore in fase di verifica!</h4>
+                            <p>Email o Codice OTP errati.</p>
+                            <p>Per favore <a href="#" onclick="changeDiv('formValEr','form')">riprova</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- script che contiene tutte le nostre funzioni js -->
+<script src="script.js"></script>
+<!-- script della pagina verifica -->
+<script>
+    //aggiungo un evento di submit al form di verifica
+    document.getElementById("Form").addEventListener('submit',function(e){
+        e.preventDefault()   //cancelliamo l'evento di default
+        validation();  //funzione js di script.js che ci consente di effettuare la verifica dell'account
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Prenotazione Messina Login">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setta la dimensione della pagina -->
+    <meta name="author" content="Roberto Tomasello,Alessandro Busà">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prenotazione Messina Login</title>
+
+    <!-- stile css di bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="signin.css">
+
+</head>
+
+<body class="text-center">
+    <!-- all'interno di questo main andremo a creare il form per il login -->
+    <main class="form-signin" id="form">
+        <!-- form di login -->
+    	<form id="Form">
+            <img class="mb-4" src="img/logo.png" alt="" width="70" height="70">
+            <h1 class="h3 mb-3 fw-normal">Login</h1>
+            <!-- input dell'email con relativo pattern -->
+            <input type="email" class="form-control" id="email"  placeholder="Indirizzo Email" required  autofocus  pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'email deve essere composta così example@example.com">
+            <!-- input della password con relativo pattern -->
+            <input type="password" class="form-control" id="password"  placeholder="Password" required  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+            <!-- bottone per il submit del form -->
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <!-- div per la creazione del bottone per il login con google-->
+            <div id=googleLogin style="padding-top: 1rem"></div>
+            <p class="mt-5 mb-3 text-muted">Se non sei registrato clicca <a href="#" onclick="changeDiv('formReg','form')">qui</a></p>
+            <p class="mt-5 mb-3 text-muted">© Prenotazione Messina 2021. All Rights Reserved. Progetto Universitario</p>
+    	</form>
+    </main>
+
+    <!-- Div che conterrà la risposta del form di login nel caso di un errore -->
+    <div class="container" id="formRisp" style="display:none"> <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il main del form di login -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Email o password errata o account non verificato.</h4>
+                    <p>Per favore <a href=# onclick="changeDiv('form','formRisp')">riprova.</a></p>
+                    <meta http-equiv="refresh" content="10000; URL='signinup.html'" /> <!-- se attendiamo 10000 secondi su questo div la pagina verrà refreshata -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- all'interno di questo main andremo a creare il form per la registrazione -->
+    <main class="form-signin" id="formReg" style="display:none"> <!-- andiamo a nascondere il main perchè inizialmente mostriamo solamente il main del form di login -->
+        <!-- form di registrazione -->
+        <form id="FormReg">
+            <img class="mb-4" src="img/logo.png" alt="" width="70" height="70">
+            <h1 class="h3 mb-3 fw-normal">Registrazione</h1>
+            <!-- input del nome con relativo pattern -->
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" required autofocus pattern="[A-Za-z]{1,32}" title="Inserire solo lettere">
+            <!-- input del cognome con relativo pattern -->
+            <input type="text" class="form-control" id="cognome" name="cognome" placeholder="Cognome" required autofocus pattern="[A-Za-z]{1,32}" title="Inserire solo lettere">
+            <!-- input del cf con relativo pattern -->
+            <input type="text" class="form-control" id="cf" name="cf" placeholder="Cofice Fiscale" maxlength="16" required autofocus pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$"
+                title="Il codice fiscale deve avere questa forma: 'AAABBB00C11D222E'">
+            <!-- input dell'indirizzo con relativo pattern -->
+            <input type="text" class="form-control" id="indirizzo" name="indirizzo" placeholder="Indirizzo" required autofocus pattern="[A-Za-z0-9 ]{1,32}" title="Inserire solo lettere o numeri">
+            <!-- input della data di nascita con relativo pattern -->
+            <input type="date" class="form-control" id="data_nascita" name="data_nascita" required autofocus>
+            <!-- input del luogo di nascita con relativo pattern -->
+            <input type="text" class="form-control" id="luogo_nascita" name="luogo_nascita" placeholder="Luogo di nascita" required autofocus pattern="[A-Za-z ]{1,32}" title="Inserire solo lettere">
+            <!-- input dell'email con relativo pattern -->
+            <input type="email" class="form-control" id="emailReg" name="emailReg" placeholder="Email" required autofocus pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'email deve essere composta così example@example.com">
+            <!-- input della password con relativo pattern -->
+            <input type="password" class="form-control" id="passwordReg" name="passwordReg" placeholder="Password" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+            <!-- input della checkPassword con relativo pattern -->
+            <input type="password" id="checkPassword" class="form-control" name="Cpassword" placeholder="Conferma Password" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"
+                title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+            <!-- bottone per il submit del form -->
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Registrami</button>
+            <p class="mt-5 mb-3 text-muted">Se sei già registrato clicca <a href="#" onclick="changeDiv('form','formReg')">qui</a></p>
+            <p class="mt-5 mb-3 text-muted">© Prenotazione Messina 2021. All Rights Reserved. Progetto Universitario</p>
+        </form>
+    </main>
+
+    <!-- all'interno di questo main andremo a creare il form per il completamento della registrazione con l'account google -->
+    <main class="form-signin" id="formGoogle" style="display:none">
+        <!-- form di registrazione -->
+        <form id="FormGoogle">
+            <img class="mb-4" src="img/logo.png" alt="" width="70" height="70">
+            <h1 class="h3 mb-3 fw-normal">Completa Registrazione Google</h1>
+            <!-- input del nome che sarà di sola lettura perchè lo prendiamo dal token che ci da google -->
+            <input type="text" class="form-control" id="nomeG" name="nomeG" value="" required autofocus readonly>
+            <!-- input del cognome che sarà di sola lettura perchè lo prendiamo dal token che ci da google -->
+            <input type="text" class="form-control" id="cognomeG" name="cognomeG" value="" required autofocus readonly>
+            <!-- input del cf con relativo pattern -->
+            <input type="text" class="form-control" id="cfG" name="cfG" placeholder="Cofice Fiscale" maxlength="16" required autofocus  pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$"  title="Il codice fiscale deve avere questa forma: 'AAABBB00C11D222E'">
+            <!-- input dell'indirizzo con relativo pattern -->
+            <input type="text" class="form-control" id="indirizzoG" name="indirizzoG" placeholder="Indirizzo" required autofocus  pattern="[A-Za-z0-9 ]{1,32}" title="Inserire solo lettere o numeri">
+            <!-- input della data di nascita con relativo pattern -->
+            <input type="date" class="form-control" id="data_nascitaG" name="data_nascitaG" required autofocus>
+            <!-- input del luogo di nascita con relativo pattern -->
+            <input type="text" class="form-control" id="luogo_nascitaG" name="luogo_nascitaG" placeholder="Luogo di nascita" required autofocus pattern="[A-Za-z0-9 ]{1,32}" title="Inserire solo lettere">
+            <!-- input dell'email che sarà di sola lettura perchè la prendiamo dal token che ci da google -->
+            <input type="email" class="form-control" id="emailG" name="emailG" value="" required autofocus readonly>
+            <!-- bottone per il submit del form -->
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Completa registrazione</button>
+            <p class="mt-5 mb-3 text-muted">© Prenotazione Messina 2021. All Rights Reserved. Progetto Universitario</p>
+        </form>
+    </main>
+
+
+    <!-- Div che conterrà la risposta del form di registrazione nel caso di successo -->
+    <div class="container" id="formRegSuc" style="display:none">  <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il main del form di login -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Ti sei registrato!</h4>
+                    <p>Per favore controlla la tua email per verificare account.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Div che conterrà la risposta del form di registrazione nel caso di errore del cf o email -->
+    <div class="container" id="formRegEC" style="display:none">  <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il main del form di login -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Errore in fase di registrazione!</h4>
+                    <p>Email o Codice Fiscale già esistenti.</p>
+                    <p>Per favore <a href="#" onclick="changeDiv('formReg','formRegEC')">riprova</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Div che conterrà la risposta del form di registrazione nel caso di errore nelle password -->
+    <div class="container" id="formRegPas" style="display:none">  <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il main del form di login -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Errore in fase di registrazione!</h4>
+                    <p>Le due password non combaciano.</p>
+                    <p>Per favore <a href="#" onclick="changeDiv('formReg','formRegPas')">riprova</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div che conterrà la risposta del login google nel caso di errore con l'email  -->
+    <div class="container" id="formGoogleExists" style="display:none">  <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il main del form di login -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Errore in fase di registrazione!</h4>
+                            <p>Non è possibile effettuare l'accesso con google.</p>
+                            <p>Per favore <a href="#" onclick="changeDiv('form','formGoogleExists')">riprova</a> con email e password.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- script che contiene tutte le nostre funzioni js -->
+<script src="script.js"></script>
+<!-- script della pagina signinup -->
+<script>
+	setDate("data_nascita");  //ci settiamo l'attributo max su l'input date
+
+    //aggiungo un evento di submit al form di login
+    document.getElementById("Form").addEventListener('submit',function(e){
+        e.preventDefault()  //cancelliamo l'evento di default
+        login();  //funzione js di script.js che ci consente di effettuare il login
+    });
+    //aggiungo un evento di submit al form di registrazione
+    document.getElementById("FormReg").addEventListener('submit',function(e){
+        e.preventDefault()  //cancelliamo l'evento di default
+        signup();  //funzione js di script.js che ci consente di effettuare la registrazione
+    });
+    //aggiungo un evento di submit al form di registrazione con google
+    document.getElementById("FormGoogle").addEventListener('submit',function(e){
+        e.preventDefault()   //cancelliamo l'evento di default
+        completeGoogle();   //funzione js di googleLogin.js che ci consente di effettuare la registrazione con google
+    });
+</script>
+<!-- script per far funzionare il login con google-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="googleLogin.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>

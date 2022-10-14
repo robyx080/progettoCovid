@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Dashboard profilo personale">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- setta la dimensione della pagina -->
+    <meta name="author" content="Roberto Tomasello,Alessandro Busà">
+    <title>Dashboard profilo personale</title>
+
+
+    <!-- stili css di bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="bootstrap-5/dashboard/dashboard.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Header che conterrà la parte iniziale della dashboard e anche il bottone per vedere i link della dashboard   -->
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vaccinazione Covid-19</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
+    <!-- div che conterrà tutta la parte principale della dashboard  -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Navbar che conterrà le icone e i link che portano alle altre pagine   -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" id="clickProfilo">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+  									<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+								</svg>
+                                Profilo
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clickShowPrenotazione">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-check" viewBox="0 0 16 16">
+                                    <path d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                    <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                </svg>
+                                Prenotazione Vaccini
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clickPassword">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                </svg>
+                                Modifica Password
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="logout()">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Div profilo che conterrà la pagina del profilo del personale   -->
+            <div id="profilo">
+                <!-- all'interno di questo main andremo a creare la pagina del profilo -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                    <h2>Profilo</h2>
+                    <!-- Div che conterrà la tabella del Profilo -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm" id="tableProfiloPersonale">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cognome</th>
+                                    <th>Codice Fiscale</th>
+                                    <th>Indirizzo</th>
+                                    <th>Telefono</th>
+                                    <th>Ospedale</th>
+                                    <th>Reparto</th>
+                                    <th>Ruolo</th>
+                                    <th>Capo sala</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+
+            <!-- Div prenotazioni che conterrà la pagina delle prenotazioni effettuate dai pazienti (storico per i primari e solo prenotazioni nella data odierna per gli infermieri)   -->
+            <div id="prenotazioni" style="display:none">
+                <!-- all'interno di questo main andremo a creare la pagina delle prenotazioni -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <h2>Prenotazione Vaccini</h2>
+                    <!-- Div che conterrà la tabella delle prenotazioni-->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm" id="tableShowPrenotazioni">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>CF</th>
+                                    <th>Codice Vaccino</th>
+                                    <th>Data Prenotazione</th>
+                                    <th>Ora</th>
+                                    <th>Minuti</th>
+                                    <th>Laboratorio</th>
+                                    <th>Dose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- tr e td li creeremo tramite js-->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Div che conterrà la risposta nel caso non ci sia nessuna prenotazione -->
+                    <div class="alert alert-warning" role="alert" id="preNull" style="display:none">
+                        <h4 class="alert-heading">Nessuna prenotazione effettuata.</h4>
+                    </div>
+
+                </main>
+            </div>
+
+            <!-- Div modifica che conterrà la pagina che ci consente di effettuare modificare la password  -->
+            <div id="modifica" style="display:none">
+                <!-- all'interno di questo main andremo a creare la pagina della modifica della password-->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                    <h2>Modifica Password</h2>
+                    <!-- form di modifica password -->
+                    <form id="formPassword">
+                        <div class="form-group mb-3">
+                            <label>Password Attuale</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="password" placeholder="Password Attuale" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Password Nuova</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="Npassword" placeholder="Password Nuova" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Conferma Password Nuova</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="Cpassword" placeholder="Conferma Password Nuova" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <button class="w-10 btn btn-lg btn-primary" type="submit">Cambia</button>
+                    </form>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di successo -->
+                    <div class="alert alert-success" role="alert" id="changeSucc" style="display:none">
+                        <h4 class="alert-heading">Password Cambiata</h4>
+                        <p>Per favore riaccedi.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di errore per password non uguali -->
+                    <div class="alert alert-danger" role="alert" id="TwoPasswordErr" style="display:none">
+                        <h4 class="alert-heading">Errore</h4>
+                        <p>Password Nuova non coincidente. Per favore <a href="#" onclick="changeDiv('formPassword','TwoPasswordErr')">riprova</a>.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di errore per password attuale  -->
+                    <div class="alert alert-danger" role="alert" id="passwordErr" style="display:none">
+                        <h4 class="alert-heading">Errore</h4>
+                        <p>Errore password attuale. Per favore <a href="#" onclick="changeDiv('formPassword','passwordErr')">riprova</a>.</p>
+                    </div>
+
+                    <!-- Div che conterrà la risposta del form di modifica password nel caso di errore per password vecchia uguale a nuova -->
+                    <div class="alert alert-danger" role="alert" id="passwordUguali" style="display:none">
+                        <h4 class="alert-heading">Errore</h4>
+                        <p>Password nuova uguale a quella vecchia. Per favore <a href="#" onclick="changeDiv('formPassword','passwordUguali')">riprova</a>.</p>
+                    </div>
+                  </main>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!-- script che contiene tutte le nostre funzioni js -->
+    <script src="script.js"> </script>
+    <!-- script della pagina dashboard_personale -->
+    <script>
+        profiloPersonale();  //funzione js di script.js che ci consente di prendere le informazione del profilo del personale
+
+        //aggiungo un evento di click al link della prenotazione
+        document.getElementById("clickShowPrenotazione").addEventListener('click',function(e){
+            e.preventDefault()  //cancelliamo l'evento di default
+            changeDivDashboard('prenotazioni','profilo','modifica');  //cambiamo il div che mostriamo
+            //settiamo la tabella delle prenotazioni con nessuna riga
+            var table = document.getElementById("tableShowPrenotazioni");
+            var tBody = table.getElementsByTagName('tbody')[0];
+            tBody.innerHTML = "";
+            showAllPrenotazioni();  //funzione js di script.js che ci consente di creare la tabella delle prenotazioni e se non ci sono prenotazioni mostra un messaggio
+        });
+
+        //aggiungo un evento di click al link del profilo
+        document.getElementById("clickProfilo").addEventListener('click',function(e){
+            e.preventDefault()  //cancelliamo l'evento di default
+            changeDivDashboard('profilo','modifica','prenotazioni');  //cambiamo il div che mostriamo
+        });
+
+        //aggiungo un evento di click al link della password
+        document.getElementById("clickPassword").addEventListener('click',function(e){
+            e.preventDefault()  //cancelliamo l'evento di default
+            changeDivDashboard('modifica','profilo','prenotazioni');  //cambiamo il div che mostriamo
+        });
+
+        //aggiungo un evento di submit al form della password
+        document.getElementById("formPassword").addEventListener('submit',function(e){
+            e.preventDefault()  //cancelliamo l'evento di default
+            changePassword();   //funzione js di script.js che ci consente di effettuare il cambio di password
+        });
+    </script>
+
+    <!-- script che ci permette di cifrare la password -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+
+    <!-- script js di bootstrap -->
+    <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+    <script src="bootstrap-5/dashboard/dashboard.js"></script>
+</body>
+
+</html>

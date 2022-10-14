@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Prenotazione Messina">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- setta la dimensione della pagina -->
+    <meta name="author" content="Roberto Tomasello,Alessandro Busà">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prenotazione Messina</title>
+
+    <!-- stile css di bootstrap e il nostro-->
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar che conterrà una foto e i link che portano alle altre pagine   -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar fixed-top">
+        <div class="container">
+            <img src="img/logo.png" alt="" width="70" height="70">
+
+            <!-- Bottone che comparirà quando il sito diventa in modalità mobile e ci permetterà di usare i link -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <!-- con l'id navbarNavAltMarkup ci andreamo a modificare la navbar quando siamo in modalità mobile e inseriamo il button precedentemente creato   -->
+                <div id="link" class="navbar-nav">
+                    <!-- div che conterrà i vari link   -->
+                    <a class="nav-link" href="#" onclick="changeDivIndex('homepage','prevenzione','sintomi','vaccino','notizie','statistiche',0)">Home</a>
+                    <a class="nav-link" href="#" onclick="changeDivIndex('prevenzione','homepage','sintomi','vaccino','notizie','statistiche',1)">Prevenzione</a>
+                    <a class="nav-link" href="#" onclick="changeDivIndex('sintomi','prevenzione','homepage','vaccino','notizie','statistiche',2)">Sintomi</a>
+                    <a class="nav-link" href="#" onclick="changeDivIndex('vaccino','prevenzione','sintomi','homepage','notizie','statistiche',3)">Vaccino</a>
+                    <a class="nav-link" href="#" onclick="changeDivIndex('notizie','vaccino','prevenzione','sintomi','homepage','statistiche',4)">Notizie</a>
+                    <a class="nav-link" href="#" onclick="changeDivIndex('statistiche','vaccino','prevenzione','sintomi','homepage','notizie',5)">Statistiche</a>
+                    <a class="nav-link" href="signinup.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Div homepage che conterrà la pagina home   -->
+    <div id="homepage">
+        <!-- Header che conterrà la parte iniziale della pagina home   -->
+        <header class="head-banner text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà la foto dell'homepage-->
+                    <div class="col-lg-6 image">
+                        <img src="img/illustration.png" width="500px" height="300px">
+                    </div>
+                    <!-- div che conterrà il testo principale dell'homepage-->
+                    <div class="col-lg-6 testo">
+                        <h1>Proteggi te stesso e gli altri da COVID-19</h1>
+                        <p>Resta al sicuro. Stai a casa.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sezione testo + video   -->
+        <section class="sezione-video bg-light text-center ">
+            <div class="container p-0">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il video di YouTube (mettiamo order-lg-2 per far modo che in modalità desktop ci mette il video dopo il testo invece in modilità mobile ci mette prima il video)  -->
+                    <div class="col-lg-6 order-lg-2 video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BtN-goy9VOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <!-- div che conterrà il testo (mettiamo order-lg-1 per far modo che in modalità desktop ci mette prima il testo invece in modilità mobile ci mette il testo dopo il video)  -->
+                    <div class="col-lg-6 order-lg-1 testo">
+                        <h3>Cos'è il coronavirus?</h3>
+                        <p>La sindrome respiratoria acuta grave Coronavirus-2 (SARS-CoV-2) è il nome dato al nuovo coronavirus del 2019. COVID-19 è il nome dato alla malattia associata al virus.<br>In caso di sintomi o dubbi, rimani in casa, non
+                            recarti al pronto soccorso o presso gli studi medici ma chiama al telefono il tuo medico di famiglia, il tuo pediatra o la guardia medica. Oppure chiama il numero verde regionale.</p>
+                        <a href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioFaqNuovoCoronavirus.jsp?lingua=italiano&id=231"><button class="btn btn-primary">Per saperne di più</button></a>
+                        <a href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5364&area=nuovoCoronavirus&menu=aChiRivolgersi"><button class="btn btn-primary">Numeri Regionali</button></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- div che conterrà il video -->
+                    <div class="col-lg-6 video">
+                        <iframe src="https://www.youtube.com/embed/3yn2cU7JG-M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- div che conterrà il testo -->
+                    <div class="col-lg-6 testo">
+                        <h3>Chi si può vaccinare e quando</h3>
+                        <p>Il piano nazionale di vaccinazione per il COVID-19 inizia il 27 dicembre 2020 e si articolerà in più fasi. Cominciamo proteggendo il nostro personale sanitario e i nostri anziani più fragili.<br>A seguire ci prenderemo cura
+                            dei cittadini più vulnerabili e poi di tutti gli altri.</p>
+                        <a href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioContenutiNuovoCoronavirus.jsp?lingua=italiano&id=5452&area=nuovoCoronavirus&menu=vuoto"><button class="btn btn-primary">Per saperne di più</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Div prevenzione che conterrà la pagina prevenzione   -->
+    <div id="prevenzione" style="display:none">
+        <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il div homepage -->
+        <!-- Header che conterrà la parte iniziale della pagina prevenzione   -->
+        <header class="head-banner text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà la foto della pagina prevenzione-->
+                    <div class="col-lg-6 image">
+                        <img src="img/protect.png" width="450px" height="350px">
+                    </div>
+                    <!-- div che conterrà il testo principale della pagina prevenzione-->
+                    <div class="col-lg-6 testo">
+                        <p>Proteggi te stesso e gli altri da COVID-19</p>
+                        <h1>Previene il contaggio da Covid-19</h1>
+                        <p>Se il COVID-19 si sta diffondendo nella tua comunità, stai al sicuro prendendo alcune semplici precauzioni.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sezione 'previeni il contaggio'    -->
+        <section class="sezione-video bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il video di YouTube (mettiamo order-lg-2 per far modo che in modalità desktop ci mette il video dopo il testo invece in modilità mobile ci mette prima il video)  -->
+                    <div class="col-lg-6 order-lg-2 video  text-center ">
+                        <iframe src="https://www.youtube.com/embed/mhy-S1ip4qI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- div che conterrà il testo (mettiamo order-lg-1 per far modo che in modalità desktop ci mette prima il testo invece in modilità mobile ci mette il testo dopo il video)  -->
+                    <div class="col-lg-6 order-lg-1 testo">
+                        <h1 class="text-center">Previeni il contaggio</h1>
+                        <p>Alcuni semplici consigli:
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Stai a casa
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Lavati spesso le mani
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Se esci di casa indossa una mascherina
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Mantieni la distanza di sicurezza
+                        </p>
+                        <br><br><a href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioFaqNuovoCoronavirus.jsp?lingua=italiano&id=235#6"><button class="btn btn-primary">Per saperne di più</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione 'cose da fare e non'    -->
+        <section class="sezione-testo">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il testo + icone nella colonna di sinistra-->
+                    <div class="col-lg-6">
+                        <h1 class="text-center">Cose da fare:</h1>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Stai a casa
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Indossa una mascherina
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Usa igenizzanti
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Lavati spesso le mani
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Disinfetta periodicamente la tua casa
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Se pensi di essere stato contaggiato mettiti in isolamento
+                        </p>
+                    </div>
+                    <!-- div che conterrà il conterrà il testo + icone nella colonna di destra-->
+                    <div class="col-lg-6">
+                        <h1 class="text-center">Cose da non fare:</h1>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Evita persone Infette
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Evita l'assembramento
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Evita le strette di mano
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Quando sei in giro non toccarti il viso
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Non toglierti la mascherina se sei in giro
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Non uscire se stai male
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Div sintomi che conterrà la pagina sintomi   -->
+    <div id="sintomi" style="display:none">
+        <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il div homepage -->
+        <!-- Header che conterrà la parte iniziale della pagina sintomi   -->
+        <header class="head-banner text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà la foto della pagina sintomi-->
+                    <div class="col-lg-6 order-lg-2 image">
+                        <img src="img/symptoms.png" width="400px" height="400px">
+                    </div>
+                    <!-- div che conterrà il testo principale della pagina sintomi-->
+                    <div class="col-lg-6 order-lg-1 testo">
+                        <p>Proteggi te stesso e gli altri da COVID-19</p>
+                        <h1>Sintomi Covid-19</h1>
+                        <p>La malattia da Covid-19 colpisce in vari modi. La maggior parte delle persone presenta sintomi lievi o moderati e guarisce senza necessità di ricovero in ospedale.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- sezione 'sintomi più comuni'   -->
+        <section class="sezione-icone bg-light text-center">
+            <div class="container">
+                <h1 class="mb-5">Sintomi più comuni da Covid-19</h1>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/mal_di_gola2.png" width="90" height="90">
+                            <h3>Mal di gola</h3>
+                            <p class="lead mb-0">Gola infiammata e in rari casi anche mancanza di respiro o difficoltà a respirare</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/tosse2.png" width="90" height="90">
+                            <h3>Tosse</h3>
+                            <p class="lead mb-0">Tosse secca di solito stizzosa, insistente e senza catarro.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/mal_di_testa2.png" width="90" height="90">
+                            <h3>Mal di testa</h3>
+                            <p class="lead mb-0">Mal di testa persistente</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/febbre2.png" width="90" height="90">
+                            <h3>Febbre</h3>
+                            <p class="lead mb-0">Febbre oltre i 37,5°C che difficilmente scende</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'primi sintomi da covid'  -->
+        <section class="sezione-video">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il video di YouTube (mettiamo order-lg-2 per far modo che in modalità desktop ci mette il video dopo il testo invece in modilità mobile ci mette prima il video)  -->
+                    <div class="col-lg-6 order-lg-2 video  text-center ">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/U8r3oTVMtQ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <!-- div che conterrà il testo (mettiamo order-lg-2 per far modo che in modalità desktop ci mette prima il testo invece in modilità mobile ci mette il testo dopo il video)  -->
+                    <div class="col-lg-6 order-lg-1 testo">
+                        <h1 class="text-center">I primi sintomi da covid-19</h1>
+                        <p>I primi sintomi possono comparire in media dai 5 ai 7 giorni (con un minimo di 2 ed un massimo di 14 giorni) dopo il contatto con una persona infetta. Può comparire febbre superiore a 37.5°C o almeno uno dei seguenti
+                            sintomi:
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Tosse
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Congestione nasale o naso che cola
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Perdita del gusto o dell'olfatto
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Gola infiammata
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Mancanza di respiro o difficoltà a respirare
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Diarrea
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Stanchezza
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Dolori muscolari o articolari
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square" viewBox="0 0 16 16">
+                                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z" />
+                            </svg> Febbre o brividi
+                        </p>
+                        <br><br><a href="http://www.salute.gov.it/portale/nuovocoronavirus/dettaglioFaqNuovoCoronavirus.jsp?lingua=italiano&id=235#6"><button class="btn btn-primary">Per saperne di più</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione 'cose da fare e non'    -->
+        <section class="sezione-testo">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il testo + icone nella colonna di sinistra-->
+                    <div class="col-lg-6">
+                        <h1 class="text-center">Cose da fare:</h1>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Stai a casa
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Indossa una mascherina
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Usa igenizzanti
+                        </p>
+                        <p class="text-align-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Lavati spesso le mani
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Disinfetta periodicamente la tua casa
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                            </svg> Se pensi di essere stato contaggiato mettiti in isolamento
+                        </p>
+                    </div>
+                    <!-- div che conterrà il conterrà il testo + icone nella colonna di destra-->
+                    <div class="col-lg-6">
+                        <h1 class="text-center">Cose da non fare:</h1>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Evita persone Infette
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Evita l'assembramento
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Evita le strette di mano
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Quando sei in giro non toccarti il viso
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Non toglierti la mascherina se sei in giro
+                        </p>
+                        <p class="text-align-left">
+                            <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-exclamation-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg> Non uscire se stai male
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Div vaccinoe che conterrà la pagina vaccino   -->
+    <div id="vaccino" style="display:none">
+        <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il div homepage -->
+        <!-- Header che conterrà la parte iniziale della pagina vaccino   -->
+        <header class="head-banner text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà la foto della pagina vaccini-->
+                    <div class="col-lg-6 image">
+                        <img src="img/vaccination2.png" width="440" height="385">
+                    </div>
+                    <!-- div che conterrà il testo principale della pagina vaccini-->
+                    <div class="col-lg-6 testo">
+                        <p>Proteggi te stesso e gli altri da COVID-19</p>
+                        <h1>Vaccinazione Anti Covid-19</h1>
+                        <p>L’obiettivo della campagna di vaccinazione della popolazione è prevenire le morti da COVID-19 e raggiungere al più presto l'immunità di gregge per il SARS-CoV2.</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- sezione 'campagna vaccinale'   -->
+        <section class="sezione-video bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il video di YouTube (mettiamo order-lg-2 per far modo che in modalità desktop ci mette il video dopo il testo invece in modilità mobile ci mette prima il video)  -->
+                    <div class="col-lg-6 order-lg-2 video  text-center ">
+                        <iframe width="500" height="255" src="https://www.youtube.com/embed/KtwDgx-L0so" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- div che conterrà il testo (mettiamo order-lg-1 per far modo che in modalità desktop ci mette prima il testo invece in modilità mobile ci mette il testo dopo il video)  -->
+                    <div class="col-lg-6 order-lg-1 testo text-center">
+                        <h1 class="text-center">Campagna Vaccinale Anti Covid-19</h1>
+                        <p class="text-align-center">Il piano nazionale di vaccinazione per il COVID-19 è partito il 27 dicembre 2020 e si articolerà in più fasi.
+                            Abbiamo iniziato proteggendo gli operatori sanitari e sociosanitari, il personale e gli ospiti dei presidi residenziali per anziani e gli anziani over 80.</p>
+                        <br><br><a href="https://info.vaccinicovid.gov.it/"><button class="btn btn-primary">Per saperne di più</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'perchè vaccinarsi'   -->
+        <section class="sezione-video">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà il conterrà il video di YouTube  -->
+                    <div class="col-lg-6 order-lg-1 video  text-center ">
+                        <iframe width="500" height="255" src="https://www.youtube.com/embed/WBY2yMLwtSs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <!-- div che conterrà il testo -->
+                    <div class="col-lg-6 order-lg-2 testo text-center">
+                        <h1 class="text-center">Perchè Vaccinarsi?</h1>
+                        <p class="text-align-center">Finalmente abbiamo a nostra disposizione uno strumento che ci può immunizzare e proteggere dalla malattia e dalla sua trasmissione.
+                            Il vaccino Anti Covid-19 contiene una molecola, RNA Messaggero (mRNA), con le istruzioni per produrre una proteina presente sul SARS-CoV2, il virus responsabile del Covid-19.
+                            Ricorda: il vaccino non contiene il virus e non ne provoca la malattia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'vaccini approvati'   -->
+        <section class="sezione-icone bg-light text-center">
+            <div class="container">
+                <h1 class="mb-5">Vaccini Approvati </h1>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="mb-5">
+                            <img src="img/Pfizer.png" width="90" height="90">
+                            <h3><br>Vaccino Pfizer Biontech</h3>
+                            <p class="lead mb-0">Efficacia: 95%<br>Numero Dosi: 2<br>Approvazione: FDA - EMA-MHRA<br>Nazionalità: Usa/Germania<br>Metodologia: mRNA</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mb-5">
+                            <img src="img/Moderna.png" width="200" height="90">
+                            <h3><br>Vaccino Moderna</h3>
+                            <p class="lead mb-0">Efficacia: 95%<br>Numero Dosi: 2<br>Approvazione: FDA - EMA-MHRA<br>Nazionalità: Usa<br>Metodologia: mRNA</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mb-5">
+                            <img src="img/astrazeneca.png" width="220" height="90">
+                            <h3><br>Vaccino AstraZeneca</h3>
+                            <p class="lead mb-0">Efficacia: 62%<br>Numero Dosi: 2<br>Approvazione: FDA - EMA-MHRA<br>Nazionalità: Regno Unito/Svezia<br>Metodologia: adenovirus di scimpanzè</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Div notizie che conterrà la pagina notizie   -->
+    <div id="notizie" style="display:none">
+        <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il div homepage -->
+        <!-- Header che conterrà la parte iniziale della pagina notizie   -->
+        <header class="head-banner text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà la foto della pagina notizie-->
+                    <div class="col-lg-6 image">
+                        <img src="img/news.png" width="400px" height="400px">
+                    </div>
+                    <!-- div che conterrà il testo principale della pagina notizie-->
+                    <div class="col-lg-6 testo">
+                        <h1>Notizie COVID-19</h1>
+                        <p>Proteggi te stesso e gli altri da COVID-19</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- sezione 'news covid-19'   -->
+        <section class="sezione-card bg-light text-center">
+            <div class="container">
+                <h1 class="mb-5">News Covid-19</h1>
+                <div class="row">
+                    <!-- div che conterrà il conterrà 4 card dove inseriremo i vari dati delle notizie prese tramite js -->
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card1_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card1_title">Card title</h5>
+                                <p class="card-text" id="card1_text">Card text</p>
+                                <p class="card-text" id="card1_date"><small class="text-muted">Card date</small></p>
+                                <a id="card1_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card2_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card2_title">Card title</h5>
+                                <p class="card-text" id="card2_text">Card text</p>
+                                <p class="card-text" id="card2_date"><small class="text-muted">Card date</small></p>
+                                <a id="card2_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card3_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card3_title">Card title</h5>
+                                <p class="card-text" id="card3_text">Card text</p>
+                                <p class="card-text" id="card3_date"><small class="text-muted">Card date</small></p>
+                                <a id="card3_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card4_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card4_title">Card title</h5>
+                                <p class="card-text" id="card4_text">Card text</p>
+                                <p class="card-text" id="card4_date"><small class="text-muted">Card date</small></p>
+                                <a id="card4_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'news vaccini covid-19'   -->
+        <section class="sezione-card text-center">
+            <div class="container">
+                <h1 class="mb-5">News vaccini Covid-19</h1>
+                <div class="row" style="padding-top:3rem">
+                    <!-- div che conterrà il conterrà 4 card dove inseriremo i vari dati delle notizie prese tramite js -->
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card5_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card5_title">Card title</h5>
+                                <p class="card-text" id="card5_text">Card text</p>
+                                <p class="card-text" id="card5_date"><small class="text-muted">Card date</small></p>
+                                <a id="card5_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card6_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card6_title">Card title</h5>
+                                <p class="card-text" id="card6_text">Card text</p>
+                                <p class="card-text" id="card6_date"><small class="text-muted">Card date</small></p>
+                                <a id="card6_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card7_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card7_title">Card title</h5>
+                                <p class="card-text" id="card7_text">Card text.</p>
+                                <p class="card-text" id="card7_date"><small class="text-muted">Card date</small></p>
+                                <a id="card7_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 card-deck">
+                        <div class="card">
+                            <img id="card8_img" src="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title" id="card8_title">Card title</h5>
+                                <p class="card-text" id="card8_text">Card text</p>
+                                <p class="card-text" id="card8_date"><small class="text-muted">Card date</small></p>
+                                <a id="card8_link" href=""><button class="btn btn-primary">Per saperne di più</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Div statistiche che conterrà la pagina statistiche   -->
+    <div id="statistiche" style="display:none">
+        <!-- andiamo a nascondere il div perchè inizialmente mostriamo solamente il div homepage -->
+        <!-- Header che conterrà la parte iniziale della pagina statistiche   -->
+        <header class="head-banner text-center">
+            <div class="container">
+                <div class="row">
+                    <!-- div che conterrà la foto della pagina Statistiche-->
+                    <div class="col-lg-6 image">
+                        <img src="img/statistiche.png" width="563px" height="383px">
+                    </div>
+                    <!-- div che conterrà il testo principale della pagina statistiche-->
+                    <div class="col-lg-6 testo">
+                        <h1>Statistiche Covid-19</h1>
+                        <p>Proteggi te stesso e gli altri da COVID-19</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sezione report + statistiche con dati recuperati tramite js -->
+        <section class="sezione-icone bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/coronavirus.svg" width="70" height="70">
+                            <h3>Casi accertati</h3>
+                            <p class="lead mb-0" id="positivi"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/coronavirus (1).svg" width="70" height="70">
+                            <h3>Guariti</h3>
+                            <p class="lead mb-0" id="guariti"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/coronavirus (2).svg" width="70" height="70">
+                            <h3>Decessi</h3>
+                            <p class="lead mb-0" id="decessi"></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-5">
+                            <img src="img/vaccine (1).svg" width="70" height="70">
+                            <h3>Vaccinazioni</h3>
+                            <p class="lead mb-0" id="vaccinazione"></p>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="mb-5">Report Giornalieri</h1>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="mb-5">
+                            <a href="https://www.governo.it/it/cscovid19/report-vaccini/"><img src="img/syringe.svg" width="70" height="70"></a>
+                            <h3>Dati Vaccinazione</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mb-5">
+                            <a href="https://github.com/pcm-dpc/COVID-19/raw/master/schede-riepilogative/regioni/dpc-covid19-ita-scheda-regioni-latest.pdf" title="COVID-19 Italia - Scarica bollettino quotidiano" target="_blank"><img
+                                    src="img/survey-results.svg" width="70" height="70"></a>
+                            <h3>Bolletino Quotidiano</h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="mb-5">
+                            <a href="https://opendatadpc.maps.arcgis.com/apps/opsdashboard/index.html#/b0c68bce2cce478eaac82fe38d4138b1"><img src="img/data.svg" width="70" height="70"></a>
+                            <h3>Dati Codiv-19 Italia</h3>
+                        </div>
+                    </div>
+                    <p class="lead mb-0" id="data_covid"><br>Dati aggiornati in data: </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'andamento curva dei contaggi' creazione grafico tramite js  -->
+        <section class="sezione-chart text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h2> Andamento curva dei contaggi </h2>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'andamento curva dei guariti' creazione grafico tramite js  -->
+        <section class="sezione-chart bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h2> Andamento curva dei guariti </h2>
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'andamento curva dei decessi' creazione grafico tramite js  -->
+        <section class="sezione-chart text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h2> Andamento curva dei decessi </h2>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'andamento covid' creazione grafico tramite js  -->
+        <section class="sezione-chart bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h2> Andamento covid </h2>
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sezione 'totole vaccinazioni per età' creazione grafico tramite js  -->
+        <section class="sezione-chart text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <h2> Totale vaccinazioni per fasce d'età </h2>
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+
+
+    <!-- Sezione footer   -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- div che conterrà i link di about ecc (non sono cliccabili perchè non sapevamo cosa inserire all'interno) -->
+                <div class="col-lg-6 h-100 text-center text-lg-left">
+                    <ul class="list-inline mb-2">
+                        <li class="lits-inline-item"><a>About</a></li>
+                        <li class="lits-inline-item"><a>Contact</a></li>
+                        <li class="lits-inline-item"><a>Term of Use</a></li>
+                        <li class="lits-inline-item"><a>Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Prenotazione Messina 2021. All Rights Reserved. Progetto Universitario</p>
+                </div>
+                <!-- div che conterrà i link dei social   -->
+                <div class="col-lg-6 h-100 text-center text-lg-right">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item mr-3">
+                            <a href="https://www.facebook.com/MinisteroSalute/">
+                                <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="list-inline-item mr-3">
+                            <a href="https://www.instagram.com/ministerosalute/?hl=it">
+                                <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="list-inline-item mr-3">
+                            <a href="https://t.me/MinisteroSalute">
+                                <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://twitter.com/MinisteroSalute?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                                <!-- tag per la creazione di un icona presa direttamente dal sito-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- script per la libreria jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- script js di bootstrap ci permette di gestire il cambio della navbar -->
+    <script src="bootstrap-5/js/bootstrap.min.js"></script>
+    <!-- script che ci permette di creare i grafici mediante chart.js-->
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- script che ci permette di prendere le statistiche del covid -->
+    <script src="csv.js"> </script>
+    <!-- script che contiene tutte le nostre funzioni js -->
+    <script src="script.js"> </script>
+    <!-- script che ci permette di prendere tutte le notizie sul covid-->
+    <script src="News.js"></script>
+    <!-- script della pagina index-->
+    <script>
+        //prendo i link della navbar e setto in grassetto il link dell'homepage
+        var link = document.getElementById("link").querySelectorAll(".nav-link");
+        link[0].style.fontWeight = "bold";
+    </script>
+
+</body>
+
+</html>

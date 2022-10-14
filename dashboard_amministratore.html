@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Dashboard amministratore">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- setta la dimensione della pagina -->
+    <meta name="author" content="Roberto Tomasello,Alessandro Busà">
+    <title>Dashboard amministratore</title>
+
+
+    <!-- stili css di bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="bootstrap-5/dashboard/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header che conterrà la parte iniziale della dashboard e anche il bottone per vedere i link della dashboard   -->
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Vaccinazione Covid-19</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+
+    <!-- div che conterrà tutta la parte principale della dashboard  -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Navbar che conterrà le icone e i link che portano alle altre pagine   -->
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" id="clickUtenti">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+  									<path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+  									<path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+  									<path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+								</svg>
+                                Credenziali Utenti
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="clickAggiungiPe">
+                                <!-- tag per la creazione di un icona -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+  									<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+  									<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+								</svg>
+                                Aggiungi Personale
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="logout()">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Div utenti che conterrà la pagina delle credenziali degli utenti   -->
+            <div id="utenti">
+                <!-- all'interno di questo main andremo a creare la pagina delle credenziali degli utenti -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                    <h2>Credenziali Utenti</h2>
+                    <!-- Div che conterrà la tabella delle credenziali di tutti gli utenti registarti nel sito -->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm" id="tableUtenti">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Tipo Utente</th>
+                                    <th>Email Confermata</th>
+                                    <th>Token</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- tr e td li creeremo tramite js-->
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+
+            <!-- Div aggiungiPe che conterrà la pagina che ci consente di effettuare la creazione di un account di un personale   -->
+            <div id="aggiungiPe" style="display:none">
+                <!-- all'interno di questo main andremo a creare la pagina per la creazione di un account -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                    <h2>Aggiungi Personale</h2>
+                    <!-- form di creazione account -->
+                    <form id="formAggiungi">
+                        <div class="form-group mb-3">
+                            <label>Nome</label>
+                            <!-- input del nome con relativo pattern -->
+                            <input type="text" class="form-control" id="nome" placeholder="Nome" required autofocus pattern="[A-Za-z]{1,32}" title="Inserire solo lettere">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Cognome</label>
+                            <!-- input del cognome con relativo pattern -->
+                            <input type="text" class="form-control" id="cognome" placeholder="Cognome" required autofocus pattern="[A-Za-z]{1,32}" title="Inserire solo lettere">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Codice Fiscale</label>
+                            <!-- input del cf con relativo pattern -->
+                            <input type="text" class="form-control" id="cf" placeholder="Cofice Fiscale" maxlength="16" required autofocus pattern="^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$"  title="Il codice fiscale deve avere questa forma: 'AAABBB00C11D222E'">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Domicilio</label>
+                            <!-- input del domicilio con relativo pattern -->
+                            <input type="text" class="form-control" id="domicilio" placeholder="Domicilio" required autofocus pattern="[A-Za-z0-9 ]{1,32}" title="Inserire solo lettere o numeri">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Telefono</label>
+                            <!-- input del telefono con relativo pattern -->
+                            <input type="text" class="form-control" id="telefono" placeholder="Numero Telefono" required autofocus pattern="[0-9]{1,10}" title="Inserire solo numeri">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Tipo Ruolo</label>
+                            <!-- select della tipologia del personale da aggiungere -->
+							<select class="form-control" id="tipo" required autofocus>
+                                <option value = "I">Infermiere</option>
+                                <option value = "P">Primario</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Capo Sala</label>
+                            <!-- select per vedere se è un capo sala o meno -->
+							<select class="form-control" id="capoSala" required autofocus>
+                                <option value = "NO">NO</option>
+                                <option value = "SI">SI</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Ospedale</label>
+                            <!-- select dell'ospedale del personale da aggiungere -->
+                            <select class="form-control" id="selectOspedale" required autofocus>
+                                <!-- (le option le creeremo tramite js) -->
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Reparto</label>
+                            <!-- select del reperto del personale da aggiungere -->
+                            <select class="form-control" id="selectReparto" required autofocus>
+                               <!-- (le option le creeremo tramite js) -->
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlSelect1">Email</label>
+                            <!-- input dell'email con relativo pattern -->
+                            <input type="email" class="form-control" id="email" placeholder="Email" required autofocus pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="L'email deve essere composta così example@example.com">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlSelect1">Password</label>
+                            <!-- input della password con relativo pattern -->
+                            <input type="password" class="form-control" id="password" placeholder="Password" required autofocus pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" title="La password deve contenere 8 o più caratteri ed essere composta da almeno un numero,una lettera maiuscola e una minuscola.">
+                        </div>
+                        <!-- bottone per il submit del form -->
+                        <button class="w-10 btn btn-lg btn-primary" type="submit">Aggiungi</button>
+                    </form>
+                    <!-- Div che conterrà la risposta del form di registrazione nel caso di successo -->
+                    <div class="alert alert-success" role="alert" id="formSuc" style="display:none">
+                        <h4 class="alert-heading">Registrazione Avvenuta! <a href="#" onclick="changeDiv('formAggiungi','formSuc')">Ripeti</a></h4>
+                    </div>
+                    <!-- Div che conterrà la risposta del form di registrazione nel caso di errore  -->
+                    <div class="alert alert-danger" role="alert" id="formErr" style="display:none">
+                        <h4 class="alert-heading">Errore in fase di registrazione <a href="#" onclick="changeDiv('formAggiungi','formErr')">Ripeti</a></h4>
+                    </div>
+                </main>
+            </div>
+		  </div>
+        </div>
+
+        <!-- script che contiene tutte le nostre funzioni js -->
+        <script src="script.js"> </script>
+        <!-- script della pagina dashboard_amministratore -->
+        <script>
+            utenti();  //funzione js di script.js che ci consente di prendere le informazione degli utenti che si sono iscritti nel sito
+            infoPe();  //funzione js di script.js che ci consente di creare le option per le select del form della aggiunta del personale (ci crea gli ospedali, reparti)
+
+            //aggiungo un evento di click al link degli utenti
+            document.getElementById("clickUtenti").addEventListener('click',function(e){
+                e.preventDefault()  //cancelliamo l'evento di default
+                changeDiv('utenti','aggiungiPe');  //cambiamo il div che mostriamo
+                //settiamo la tabella degli utenti con nessuna riga
+                var table = document.getElementById("tableUtenti");
+                var tBody = table.getElementsByTagName('tbody')[0];
+                tBody.innerHTML = "";
+                utenti();  //funzione js di script.js che ci consente di prendere le informazione degli utenti che si sono iscritti nel sito
+            });
+
+            //aggiungo un evento di click al link della registrazione del personale
+            document.getElementById("clickAggiungiPe").addEventListener('click',function(e){
+                e.preventDefault()  //cancelliamo l'evento di default
+                changeDiv('aggiungiPe','utenti');  //cambiamo il div che mostriamo
+            });
+
+            //aggiungo un evento di submit al form della registrazione del personale
+            document.getElementById("formAggiungi").addEventListener('submit',function(e){
+                e.preventDefault()  //cancelliamo l'evento di default
+                aggiungiPersonale();  //funzione js di script.js che ci consente di creare un account per il personale
+            });
+        </script>
+
+        <!-- script js di bootstrap -->
+        <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+        <script src="bootstrap-5/dashboard/dashboard.js"></script>
+
+        <!-- script che ci permette di cifrare la password -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.0.2/sha.js"></script>
+
+</body>
+
+</html>
