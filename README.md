@@ -1,4 +1,4 @@
-# progettoINGSW
+# progettoCOVID
 
 Demo web application
 https://prenotazionemessina.altervista.org/ 
